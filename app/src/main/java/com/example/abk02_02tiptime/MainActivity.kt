@@ -11,50 +11,59 @@ import java.text.NumberFormat
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var activityMainBinding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(activityMainBinding.root)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        activityMainBinding.calculateButton.setOnClickListener {
-            calculateTip()
-        }
-        activityMainBinding.costOfServiceEditText.setOnKeyListener { view, keyCode, _ -> handleKeyEvent(view, keyCode)
-        }
+        binding.calculateButton.setOnClickListener { calculateTip() }
 
+        binding.costOfServiceEditText.setOnKeyListener { view, keyCode, _ ->
+            handleKeyEvent(
+                view,
+                keyCode
+            )
+        }
     }
 
     private fun calculateTip() {
-        val cost= activityMainBinding.costOfServiceEditText.text.toString().toDoubleOrNull()
+        val stringInTextField = binding.costOfServiceEditText.text.toString()
+        val cost = stringInTextField.toDoubleOrNull()
 
-        val tipPercentage = when (activityMainBinding.tipOptions.checkedRadioButtonId) {
+        if (cost == null || cost == 0.0) {
+            displayTip(0.0)
+            return
+        }
+
+        val tipPercentage = when (binding.tipOptions.checkedRadioButtonId) {
             R.id.option_twenty_percent -> 0.20
             R.id.option_eighteen_percent -> 0.18
             else -> 0.15
         }
 
-        var tip = tipPercentage * cost!!
+        var tip = tipPercentage * cost
 
-        val roundUp = activityMainBinding.roundUpSwitch.isChecked
-        if(roundUp) {
+        val roundUp = binding.roundUpSwitch.isChecked
+        if (roundUp) {
             tip = kotlin.math.ceil(tip)
         }
+        displayTip(tip)
+    }
+
+    private fun displayTip(tip: Double) {
         val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
-        activityMainBinding.tipResult.text = getString(R.string.tip_amount, formattedTip)
+        binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
     }
 
     private fun handleKeyEvent(view: View, keyCode: Int): Boolean {
         if (keyCode == KeyEvent.KEYCODE_ENTER) {
-            // Hide the keyboard
             val inputMethodManager =
-                    getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
             return true
         }
         return false
     }
-
-
 }
