@@ -1,4 +1,5 @@
 # ABK02_02TipTime
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/32328761/143728067-2ba9f41b-8a0f-4207-8f89-78e95c77958e.jpg" width=35% height=35%> <img src="https://user-images.githubusercontent.com/32328761/143728084-c3d22792-3944-4bda-a94b-af28d1a717ac.jpg" width=35% height=35%></p>
+<img width="240" alt="Screenshot_2022-03-09-10-05-29-101_com example 1" src="https://user-images.githubusercontent.com/32328761/168967705-b226b4e5-27da-4c72-abab-61d78003b1f5.jpg">
+  <img width="240" alt="Screenshot_2022-03-09-10-05-29-101_com example 1" src="https://user-images.githubusercontent.com/32328761/168967710-77a40b58-f17a-4b04-85ba-5b0f0ef2f987.jpg">
