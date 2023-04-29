@@ -1,4 +1,4 @@
-package com.example.abk02_02tiptime
+package com.roynaldi19.abk2_01tiptime
 
 import org.junit.Test
 

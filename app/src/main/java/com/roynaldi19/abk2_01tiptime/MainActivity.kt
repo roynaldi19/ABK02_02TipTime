@@ -1,4 +1,4 @@
-package com.example.abk02_02tiptime
+package com.roynaldi19.abk2_01tiptime
 
 import android.content.Context
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
-import com.example.abk02_02tiptime.databinding.ActivityMainBinding
+import com.roynaldi19.abk2_01tiptime.databinding.ActivityMainBinding
 import java.text.NumberFormat
 
 class MainActivity : AppCompatActivity() {
