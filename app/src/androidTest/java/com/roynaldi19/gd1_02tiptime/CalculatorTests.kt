@@ -21,11 +21,14 @@ class CalculatorTests {
     val activity = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    fun calculate20(){
+    fun calculate_20_percent_tip() {
         onView(withId(R.id.cost_of_service_edit_text))
-            .perform(typeText("10000"))
+            .perform(typeText("50.00"))
+
         onView(withId(R.id.calculate_button)).perform(click())
+
         onView(withId(R.id.tip_result))
-            .check(matches(withText(containsString("2000"))))
+            .check(matches(withText(containsString("$10.00"))))
     }
 }
+
