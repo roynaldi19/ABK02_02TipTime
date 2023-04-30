@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "ABK2_01TipTime"
+rootProject.name = "GD1_02TipTime"
